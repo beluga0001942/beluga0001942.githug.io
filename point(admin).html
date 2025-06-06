@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href=".style.css">
+    <title>title</title>
+</head>
+<body>
+    <h1>Point</h1>
+    <h3>Minh: </h3>
+    <button onclick="plusPoint()">Plus</button>
+    <button onclick="minusPoint()">Minus</button>
+    <p id="result">You have 0 point(s)!</p>
+    <h3>Tâm: </h3>
+    <button onclick="plusTamPoint()">Plus</button>
+    <button onclick="minusTamPoint()">Minus</button>
+    <p id="tamResult">You have 0 point(s)!</p>
+</body>
+<script>
+function plusPoint() {
+  const x = document.getElementById("result");
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.minhPoints) {
+      localStorage.minhPoints = Number(localStorage.minhPoints) + 1;
+    } else {
+      localStorage.minhPoints = 1;
+    }
+    x.innerHTML = "You have " + localStorage.minhPoints + " point(s)!";
+  } else {
+    x.innerHTML = "Sorry, no Web storage support!";
+  }
+}
+
+function minusPoint() {
+  const x = document.getElementById("result");
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.minhPoints) {
+      localStorage.minhPoints = Number(localStorage.minhPoints) - 1;
+    } else {
+      localStorage.minhPoints = 0;
+    }
+    x.innerHTML = "You have " + localStorage.minhPoints + " point(s)!";
+  } else {
+    x.innerHTML = "Sorry, no Web storage support!";
+  }
+}
+
+function plusTamPoint() {
+  const x = document.getElementById("tamResult");
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.tamPoints) {
+      localStorage.tamPoints = Number(localStorage.tamPoints) + 1;
+    } else {
+      localStorage.tamPoints = 1;
+    }
+    x.innerHTML = "You have " + localStorage.tamPoints + " point(s)!";
+  } else {
+    x.innerHTML = "Sorry, no Web storage support!";
+  }
+}
+
+function minusTamPoint() {
+  const x = document.getElementById("tamResult");
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.tamPoints) {
+      localStorage.tamPoints = Number(localStorage.tamPoints) - 1;
+    } else {
+      localStorage.tamPoints = 0;
+    }
+    x.innerHTML = "You have " + localStorage.tamPoints + " point(s)!";
+  } else {
+    x.innerHTML = "Sorry, no Web storage support!";
+  }
+}
+
+function showAllPoints() {
+    const minhPoints = localStorage.getItem("minhPoints") || 0;
+    const tamPoints = localStorage.getItem("tamPoints") || 0;
+    alert("Minh: " + minhPoints + " point(s)\nTâm: " + tamPoints + " point(s)");
+}
+</script>
+</html>

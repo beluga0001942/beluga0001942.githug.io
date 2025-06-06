@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href=".style.css">
+    <title>View Points Only</title>
+</head>
+<body>
+    <h1>Points</h1>
+    <h3>A:</h3>
+    <p id="result">You have 0 point(s)!</p>
+    <h3>B:</h3>
+    <p id="tamResult">You have 0 point(s)!</p>
+</body>
+<script>
+function updatePoints() {
+    const minhPoints = localStorage.getItem("minhPoints") || 0;
+    const tamPoints = localStorage.getItem("tamPoints") || 0;
+    document.getElementById("result").innerHTML = "You have " + minhPoints + " point(s)!";
+    document.getElementById("tamResult").innerHTML = "You have " + tamPoints + " point(s)!";
+}
+function showAllPoints() {
+    const minhPoints = localStorage.getItem("minhPoints") || 0;
+    const tamPoints = localStorage.getItem("tamPoints") || 0;
+    alert("Minh: " + minhPoints + " point(s)\nTâm: " + tamPoints + " point(s)");
+}
+updatePoints();
+</script>
+</html>
